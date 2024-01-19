@@ -10,7 +10,7 @@ model: MODEL_KEY modelid MODEL_OPEN modelbody MODEL_CLOSE ;
 modelid: ID;
 modelbody: field*;
 
-field: fieldname fieldtype MODEL_FIELD_END;
+field: fieldname fieldtype;
 fieldname: ID;
 fieldtype: ID;
 

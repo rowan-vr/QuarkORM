@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
 
 class QuarkSchemaParserTest {
-    private val test1 = schema(listOf(model("test", listOf(field("test", "test"))), model("test1", listOf(field("test1", "test1")))))
+    private val test1 = schema(listOf(model("Test", listOf(field("field1", "String"),field("field2", "Integer"))), model("AnotherTest", listOf(field("coolField", "String"),field("coolerField", "Integer"),field("coolestField", "Boolean")))))
 
     @Test
     fun testParse() {

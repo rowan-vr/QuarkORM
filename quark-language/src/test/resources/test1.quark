@@ -1,7 +1,10 @@
-model test {
-    test test
+model Test {
+    field1 String
+    field2 Integer
 }
 
-model test1 {
-    test1 test1
+model AnotherTest {
+    coolField String
+    coolerField Integer
+    coolestField Boolean
 }
