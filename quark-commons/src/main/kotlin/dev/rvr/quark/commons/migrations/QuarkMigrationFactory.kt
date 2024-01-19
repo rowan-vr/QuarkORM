@@ -33,24 +33,24 @@ class StandardQuarkMigrationFactory : QuarkMigrationFactory {
 
                 for (field in oldModel.fields) {
                     if (!newModel.fields.contains(field)) {
-                        steps.add(DropFieldStep(oldModel, field))
+                        steps.add(DropFieldStep(oldModel.name, field))
                     }
                 }
 
                 for (field in newModel.fields) {
                     if (!oldModel.fields.contains(field)) {
-                        steps.add(CreateFieldStep(newModel, field))
+                        steps.add(CreateFieldStep(newModel.name, field))
                     }
                 }
 
                 for (field in newModel.fields) {
                     val oldField = oldModel.fields.find { it.name == field.name }
                     if (oldField != null && oldField != field) {
-                        steps.add(ModifyFieldStep(newModel, field))
+                        steps.add(ModifyFieldStep(newModel.name, field))
                     }
                 }
 
-                builder.step(AlterModelStep(oldModel, steps))
+                builder.step(AlterModelStep(oldModel.name, steps))
             }
         }
 

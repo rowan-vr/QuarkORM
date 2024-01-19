@@ -1,6 +1,6 @@
 package dev.rvr.quark.language
 
-import dev.rvr.quark.language.factory.StandardQuarkParserFactory
+import dev.rvr.quark.language.factory.SchemaParserFactory
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
@@ -11,7 +11,7 @@ class QuarkSchemaParserTest {
     @Test
     fun testParse() {
         val schemaContent = QuarkSchemaParserTest::class.java.getResource("/test1.quark")?.openStream()
-        val parser = StandardQuarkParserFactory().createFromInputStream(schemaContent!!)
+        val parser = SchemaParserFactory().createFromInputStream(schemaContent!!)
         val schema = QuarkSchemaParser(parser).parse()
         assertEquals(test1, schema)
     }

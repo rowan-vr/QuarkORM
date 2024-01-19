@@ -25,7 +25,7 @@ data class DropModelStep(val model: QuarkModel) : SchemaMigrationStep {
     }
 }
 
-data class AlterModelStep(val model: QuarkModel, val steps: List<ModelMigrationStep>) : SchemaMigrationStep {
+data class AlterModelStep(val model: String, val steps: List<ModelMigrationStep>) : SchemaMigrationStep {
     override fun <T> accept(visitor: QuarkMigrationVisitor<T>): T {
         return visitor.visitAlterModelStep(this)
     }
@@ -33,31 +33,31 @@ data class AlterModelStep(val model: QuarkModel, val steps: List<ModelMigrationS
 
 data class RenameModelStep(val model: QuarkModel) : ModelMigrationStep {
     override fun <T> accept(visitor: QuarkMigrationVisitor<T>): T {
-        return visitor.visitRenameModelStep(this)
+        TODO("Not yet implemented")
     }
 }
 
-data class CreateFieldStep(val model: QuarkModel, val field: QuarkModelField) : ModelMigrationStep {
+data class CreateFieldStep(val model: String, val field: QuarkModelField) : ModelMigrationStep {
     override fun <T> accept(visitor: QuarkMigrationVisitor<T>): T {
         return visitor.visitCreateFieldStep(this)
     }
 }
 
-data class DropFieldStep(val model: QuarkModel, val field: QuarkModelField) : ModelMigrationStep {
+data class DropFieldStep(val model: String, val field: QuarkModelField) : ModelMigrationStep {
     override fun <T> accept(visitor: QuarkMigrationVisitor<T>): T {
         return visitor.visitDropFieldStep(this)
     }
 }
 
-data class ModifyFieldStep(val model: QuarkModel, val field: QuarkModelField) : ModelMigrationStep {
+data class ModifyFieldStep(val model: String, val field: QuarkModelField) : ModelMigrationStep {
     override fun <T> accept(visitor: QuarkMigrationVisitor<T>): T {
         return visitor.visitModifyFieldStep(this)
     }
 }
 
-data class RenameFieldStep(val model: QuarkModel, val field: QuarkModelField) : ModelMigrationStep {
+data class RenameFieldStep(val model: String, val field: QuarkModelField) : ModelMigrationStep {
     override fun <T> accept(visitor: QuarkMigrationVisitor<T>): T {
-        return visitor.visitRenameFieldStep(this)
+        TODO("Not yet implemented")
     }
 }
 

@@ -1,0 +1,6 @@
+[CREATE_MODEL]:model("user",[field("name","String");field("age","Integer")])
+--- MODEL test ---
+[CREATE_FIELD]:field("test","Integer")
+[DROP_FIELD]:field("old","Integer")
+--- END ---
+[DROP_MODEL]:model("bad",[])

@@ -20,7 +20,7 @@ class MutableMigrationVisitor(current: QuarkSchema): QuarkMigrationVisitor<Mutab
 
     override fun visitAlterModelStep(step: AlterModelStep): MutableQuarkSchema {
         return mutable.apply {
-            currentModel = models.find { it.name == step.model.name }!!
+            currentModel = models.find { it.name == step.model }!!
             step.steps.forEach {
                 it.accept(this@MutableMigrationVisitor)
             }
