@@ -2,7 +2,7 @@ package dev.rvr.quark.commons.migrations
 
 interface QuarkMigrationVisitor<T> {
     fun visitMigration(migration: QuarkMigration): T {
-        return migration.steps.map { it.accept(this) }.reduce { acc, _ -> acc }
+        return migration.steps.map { it.accept(this) }.last()
     }
     fun visitCreateModelStep(step: CreateModelStep): T
     fun visitDropModelStep(step: DropModelStep): T

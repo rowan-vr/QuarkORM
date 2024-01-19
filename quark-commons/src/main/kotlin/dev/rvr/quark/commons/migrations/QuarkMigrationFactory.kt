@@ -15,13 +15,13 @@ class StandardQuarkMigrationFactory : QuarkMigrationFactory {
         val newModels = new.models
 
         for (model in oldModels) {
-            if (!newModels.contains(model)) {
+            if (!newModels.any { it.name == model.name }) {
                 builder.step(DropModelStep(model))
             }
         }
 
         for (model in newModels) {
-            if (!oldModels.contains(model)) {
+            if (!oldModels.any { it.name == model.name }) {
                 builder.step(CreateModelStep(model))
             }
         }
