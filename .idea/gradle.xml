@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/quark-commons" />
+            <option value="$PROJECT_DIR$/quark-databases" />
             <option value="$PROJECT_DIR$/quark-language" />
           </set>
         </option>

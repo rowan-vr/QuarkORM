@@ -4,3 +4,4 @@ plugins {
 rootProject.name = "quark"
 include("quark-language")
 include("quark-commons")
+include("quark-databases")

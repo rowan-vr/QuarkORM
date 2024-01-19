@@ -5,7 +5,7 @@ import com.google.common.base.Objects
 
 class QuarkModel constructor(builder: Builder) {
     val name = builder.name!!
-    val fields: List<QuarkModelField> = builder.fields
+    val fields: Set<QuarkModelField> = builder.fields
 
 
     override fun equals(other: Any?): Boolean {
@@ -21,7 +21,7 @@ class QuarkModel constructor(builder: Builder) {
     }
 
     class Builder {
-        internal var fields: List<QuarkModelField> = emptyList()
+        internal var fields: Set<QuarkModelField> = emptySet()
         internal var name: String? = null
 
         fun field(field: QuarkModelField): Builder {

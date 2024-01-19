@@ -3,7 +3,7 @@ package dev.rvr.quark.commons.models
 import com.google.common.base.Objects
 
 class QuarkSchema private constructor(builder: Builder){
-    val models: List<QuarkModel> = builder.models
+    val models: Set<QuarkModel> = builder.models
 
     override fun equals(other: Any?): Boolean {
         return other is QuarkSchema && other.models == models
@@ -18,7 +18,7 @@ class QuarkSchema private constructor(builder: Builder){
     }
 
     class Builder {
-        internal var models: List<QuarkModel> = emptyList()
+        internal var models: Set<QuarkModel> = emptySet()
 
         fun model(field: QuarkModel): Builder {
             models = models + field
