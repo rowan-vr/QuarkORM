@@ -1,6 +1,6 @@
-parser grammar QuarkParser;
+parser grammar SchemaParser;
 
-options { tokenVocab=QuarkLexer; }
+options { tokenVocab=SchemaLexer; }
 
 file: block* ;
 

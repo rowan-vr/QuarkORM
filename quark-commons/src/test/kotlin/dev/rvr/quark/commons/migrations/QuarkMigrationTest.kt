@@ -18,7 +18,7 @@ class QuarkMigrationTest {
 
         assertEquals(1, migration.steps.size)
         assertEquals(CreateModelStep(model), migration.steps[0])
-        assertEquals(migration.accept(QuarkMigrationObjectVisitor(old)).toImmutable(),new)
+        assertEquals(migration.accept(MutableMigrationVisitor(old)).toImmutable(),new)
     }
 
     @Test
@@ -31,7 +31,7 @@ class QuarkMigrationTest {
         val migration = StandardQuarkMigrationFactory().createMigration(old, new)
 
         assertEquals(4, migration.steps.size)
-        assertEquals(migration.accept(QuarkMigrationObjectVisitor(old)).toImmutable(),new)
+        assertEquals(migration.accept(MutableMigrationVisitor(old)).toImmutable(),new)
     }
 
     //TODO: Tests for each step

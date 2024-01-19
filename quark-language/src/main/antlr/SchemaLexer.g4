@@ -1,4 +1,4 @@
-lexer grammar QuarkLexer;
+lexer grammar SchemaLexer;
 
 MODEL_KEY: 'model' -> pushMode(MODEL);
 NEWLINE : [\n] -> skip ;

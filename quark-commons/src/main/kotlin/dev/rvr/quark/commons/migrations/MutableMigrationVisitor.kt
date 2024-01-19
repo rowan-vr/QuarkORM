@@ -2,7 +2,7 @@ package dev.rvr.quark.commons.migrations
 
 import dev.rvr.quark.commons.models.*
 
-class QuarkMigrationObjectVisitor(current: QuarkSchema): QuarkMigrationVisitor<MutableQuarkSchema> {
+class MutableMigrationVisitor(current: QuarkSchema): QuarkMigrationVisitor<MutableQuarkSchema> {
     private val mutable = MutableQuarkSchema.fromImmutable(current);
     private var currentModel: MutableQuarkModel? = null
 
@@ -22,7 +22,7 @@ class QuarkMigrationObjectVisitor(current: QuarkSchema): QuarkMigrationVisitor<M
         return mutable.apply {
             currentModel = models.find { it.name == step.model.name }!!
             step.steps.forEach {
-                it.accept(this@QuarkMigrationObjectVisitor)
+                it.accept(this@MutableMigrationVisitor)
             }
             currentModel = null
         }
